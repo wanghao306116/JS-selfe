@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+}
+.outbox{
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+}
+.box{
+    width: 100%;
+    z-index: 111;
+    padding: 100px 130px;
+    background-color: #FAFAFA;
+    transform-origin:0% 0%;
+    transition: transform 0.5s linear;
+}
+.title{
+    font-weight: 800;
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.smalltitle{
+    font-size: 12px;
+    font-style: italic;
+    color: #555555;
+}
+.content{
+    color: #333333;
+    font-size: 16px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+/* .image{
+    max-width: 100%;
+    min-height: 100%;
+    height: 50vh;
+    overflow: hidden;
+    background: pink url(https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80) no-repeat;
+    background-size: 100% 100%;
+    
+} */
+img{
+    max-width: 100%;
+}
+.middletitle{
+    
+    font-weight: bolder;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+.pad{
+    padding: 0 0 20px;
+}
+.cont{
+    margin: 20px 0;
+    padding: 0 0 100px 0; 
+}
+.tools{
+    border-radius: 50%;
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    background-color: #FF7979;
+    transition: transform 0.5s linear;
+    z-index: 999;
+    /* transform: rotate(-90deg); */
+}
+.mini{
+    margin-bottom: 4px;
+    width: 23px;
+    height: 0px;
+    border-radius: 3px;
+    border: 2px solid #fff;
+    background-color: #fff;
+}
+.outbox{
+    position: relative;
+}
+.san{
+    position: absolute;
+    top: 140px;
+    left: 127px;
+    
+}
+.cha{
+    position: absolute;
+    transform: rotate(45deg);
+    top: 138px;
+    left: 38px;
+}
+.back{
+    margin-bottom: 4px;
+    width: 27px;
+    background-color: #fff;
+    /* height: 32.5px; */
+    border-radius: 3px;
+    border: 2px solid #fff;
+}
+.ga{
+    transform: rotate(90deg);
+}
+.ji{
+    position: absolute;
+}
+
+nav{
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+
+}
+nav a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    animation: 3s nav linear infinite normal;
+}
+
+@keyframes nav {
+    0%{
+        transform: translateX(0px);
+        -webkit-transform:translateX(0px);
+    }
+    100%{
+        transform: translateX(100%);
+        -webkit-transform:translateX(100%);
+    }
+}

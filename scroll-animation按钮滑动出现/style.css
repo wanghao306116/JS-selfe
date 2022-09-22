@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #ECEAD3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow-x: hidden;
+   
+}
+
+.box{
+    width: 400px;
+    height: 200px;
+    color: #fff;
+    background-color:#4682B4;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    transform: translateX(400%);
+    transition: transform .4s ease;
+}
+
+.box:nth-of-type(even){
+    transform: translateX(-400%);
+}
+
+h1{
+    margin: 10px;
+}
+
+.box.show{
+    transform: translateX(0);
+}
+
+.box h2{
+    margin: 40px;
+}

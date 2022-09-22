@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100vh;
+}
+
+table tr {
+    width: 50vh;
+    height: 50px;
+}
+
+table tr th {
+    width: 20vh;
+    background-color: hsl(173, 100%, 90%);
+}
+
+table tr td {
+    width: 30vh;
+}
+
+.txtget {
+    width: 250px;
+    border: 0;
+    height: 50px;
+    outline: none;
+    text-align: center;
+}
+
+.txtget:hover {
+    background-color: rgb(175, 224, 187);
+}
+
+select {
+    width: 250px;
+    text-align: center;
+    outline: none;
+    border: none;
+}

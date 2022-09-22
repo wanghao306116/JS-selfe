@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body,
+    html,
+    div,
+    ul,
+    ol {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    body {
+        width: 1280px;
+        height: 630px;
+        background-color: rgb(64, 64, 64);
+    }
+    
+    #box {
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background-image: radial-gradient(rgb(224, 224, 224) 60%, rgb(205, 205, 205) 65%, rgb(224, 224, 224) 70%);
+        margin: 0 auto;
+        position: relative;
+    }
+    
+    .arc {
+        width: 80px;
+        height: 80px;
+        background-color: rgba(145, 145, 145, 0.292);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+    }
+    
+    .cleanfilx::before,
+    .cleanfilx::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+    
+    #hour {
+        width: 31px;
+        height: 100px;
+        background-color: rgb(166, 166, 166);
+        position: absolute;
+        left: 25px;
+        top: -55px;
+        transform-origin: 50% 100%;
+    }
+    
+    #hour div {
+        width: 20px;
+        height: 20px;
+        background-color: rgb(166, 166, 166);
+        transform: rotate(45deg);
+        position: absolute;
+        left: 5px;
+        top: -11px;
+    }
+    
+    #min {
+        width: 20px;
+        height: 150px;
+        background-color: rgb(104, 104, 104);
+        position: absolute;
+        left: 30px;
+        top: -105px;
+        transform-origin: 50% 100%;
+        /* transform: rotate(45deg); */
+    }
+    
+    #min div {
+        width: 14px;
+        height: 14px;
+        background-color: rgb(104, 104, 104);
+        transform: rotate(45deg);
+        position: absolute;
+        left: 3px;
+        top: -6px;
+    }
+    
+    #sec {
+        width: 6px;
+        height: 200px;
+        background-color: rgb(255, 0, 0);
+        position: absolute;
+        left: 37px;
+        top: -135px;
+        transform-origin: 4px 175px;
+        /* transform: rotate(200deg); */
+    }
+    
+    #sec div {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: rgb(0, 0, 0);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, 200%);
+    }
+    
+    #ul {
+        position: absolute;
+        left: calc(420px/2 - 340px/2);
+        top: calc(420px/2 - 340px/2);
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        border: 1px solid rgb(0, 0, 0);
+    }
+    
+    #ul li {
+        position: absolute;
+        left: calc(420px/2 - 2px/2);
+        background-color: rgb(99, 99, 99);
+        width: 3px;
+        height: 6px;
+        transform-origin: center 210px;
+        border-radius: 5px;
+        /* transform: rotate(90deg); */
+    }
+    
+    #num {
+        position: absolute;
+        left: calc(500px/2 - 20px/2);
+        top: calc(500px/2 - 20px/2);
+        width: 20px;
+        height: 20px;
+        -background: red;
+        border-radius: 50%;
+    }
+    
+    #num li {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        text-align: center;
+        font-size: 12px;
+        line-height: 20px;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <div class="arc .cleanfilx">
+            <div id="hour">
+                <div></div>
+            </div>
+            <div id="min">
+                <div></div>
+            </div>
+            <div id="sec">
+                <div></div>
+            </div>
+        </div>
+        <div id="ul">
+
+
+        </div>
+        <ol id="num">
+
+        </ol>
+    </div>
+    <script>
+        createkedu();
+        getNowtime();
+        setInterval(getNowtime, 1000);
+
+        function createkedu() {
+            for (var i = 0; i < 60; i++) {
+                if (i % 5 == 0) {
+                    ul.innerHTML += ' <li style="width: 5px; height: 10px; transform:rotate(' +
+                        i * 6 + 'deg)"></li>'
+                } else {
+                    ul.innerHTML += ' <li style="transform:rotate(' +
+                        i * 6 + 'deg)"></li>'
+                }
+            }
+            for (var i = 1; i <= 12; i++) {
+                var x = (Math.sin(i * 30 * Math.PI / 180) * 180).toFixed(2);
+                var y = (-Math.cos(i * 30 * Math.PI / 180) * 180).toFixed(2);
+
+                num.innerHTML += `<li style="left:${x+180}px;top:${y}px">${i}</li>`
+            }
+        }
+
+        function getNowtime() {
+            var date = new Date();
+            var h = date.getHours(); //时；
+            var m = date.getMinutes(); //分
+            var s = date.getSeconds(); //秒
+            console.log(h, m, s);
+            //转动指针9：40：30
+            //hour  360deg=12h 
+            //      30deg =1 h
+            //min   360deg=60m
+            //      6deg= 1m
+            //secon 360deg=60s
+            //      6deg=1s
+            hour.style.transform = `rotate(${h*30}deg)`;
+            min.style.transform = `rotate(${m*6}deg)`;
+            sec.style.transform = `rotate(${s*6}deg)`;
+        }
+    </script>
+</body>
+
+</html>

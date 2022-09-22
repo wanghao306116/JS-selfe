@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="qjt.css">
+    <title>请假条</title>
+</head>
+
+<body>
+    <form action="">
+        <table border="1">
+            <tr>
+                <th colspan="4">请假条</th>
+            </tr>
+            <tr>
+                <th>请假人</th>
+                <td><input type="text" class="txtget" name="" id=""></td>
+                <th>申请时间</th>
+                <td><input type="text" class="txtget" name="" id=""></td>
+            </tr>
+            <tr>
+                <th>开始时间</th>
+                <td><input type="text" class="txtget" name="" id="txtTime"></td>
+                <th>结束时间</th>
+                <td><input type="text" class="txtget" name="" id="txtTimeend"></td>
+            </tr>
+            <tr>
+                <th>请假类型</th>
+                <td><select name="" id="jqlx">
+                    <option value="事假">事假</option>
+                    <option value="病假">病假</option>
+                    <option value="年假">年假</option>
+                </select></td>
+                <th>请假天数</th>
+                <td><select name="" id="qjday"></select></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        var txtget = document.querySelectorAll(".txtget");
+        var options = document.querySelectorAll("#qjday option");
+        var optionqjlx = document.querySelectorAll("#jqlx option")
+        let date = new Date();
+        let y = date.getFullYear();
+        let mo = date.getMonth();
+        let dd = date.getDate();
+        let h = date.getHours();
+        let m = date.getMinutes();
+        let s = date.getSeconds();
+        for (let i = 0; i < txtget.length; i++) {
+            txtget[i].addEventListener("focus", function() {
+                txtget[i].style.backgroundColor = "pink"
+            })
+            txtget[i].addEventListener("focusout", function() {
+                txtget[i].style.backgroundColor = ""
+            })
+        }
+        let select = document.querySelector("#qjday")
+        for (let i = 0; i < 15; i++) {
+            let option = document.createElement("option");
+            option.innerText = `${i}`
+            option.value = `${i}`
+
+            select.appendChild(option)
+                //select.insertBefore(option, select.children[i])
+        }
+        txtTime.addEventListener("focus", function() {
+
+            txtTime.value = `${y}/${mo+1}/${dd}/${h}:${m}:${s}`;
+        });
+        txtTimeend.addEventListener("click", function() {
+            let day = qjday.options[qjday.selectedIndex].value;
+            txtTimeend.value = `${y}/${mo+1}/${dd+parseInt(day)}/${h}:${m}:${s}`;
+        })
+    </script>
+</body>
+
+</html>

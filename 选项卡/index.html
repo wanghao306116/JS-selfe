@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgb(250, 220, 250);
+            transition: 1s;
+        }
+        
+        .shell {
+            width: 280px;
+            height: 400px;
+            background-color: #fff;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .shell-top {
+            width: 100%;
+            height: 340px;
+            border-bottom: 1px solid rgba(223, 223, 223);
+            overflow-x: hidden;
+        }
+        
+        .shell-top ul {
+            width: 300%;
+            height: 100%;
+            display: flex;
+            position: relative;
+            transition: .3;
+            left: 0;
+        }
+        
+        .shell-top .main li {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        
+        .shell-top .main li img {
+            width: 150px;
+        }
+        
+        .shell-top .main li .box-one {
+            width: 70%;
+            height: 10px;
+            border-radius: 10px;
+            background-color: rgb(220, 220, 220);
+        }
+        
+        .shell-top .main li .box-two {
+            width: 50%;
+            height: 10px;
+            border-radius: 10px;
+            background-color: rgb(220, 220, 220);
+        }
+        
+        .shell-bottom {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            height: 58px;
+        }
+        
+        .shell-bottom li img {
+            width: 40px;
+        }
+        
+        .shell-bottom li {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            filter: grayscale(0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="shell-top">
+            <ul class="main">
+                <li>
+                    <img src="img/1.png" alt="">
+                    <div class="box-one"></div>
+                    <div class="box-two"></div>
+                    <div class="box-one"></div>
+                </li>
+                <li>
+                    <img src="img/2.png" alt="">
+                    <div class="box-one"></div>
+                    <div class="box-two"></div>
+                    <div class="box-one"></div>
+                </li>
+                <li>
+                    <img src="img/3.png" alt="">
+                    <div class="box-one"></div>
+                    <div class="box-two"></div>
+                    <div class="box-one"></div>
+                </li>
+            </ul>
+        </div>
+        <!-- 底部按钮 -->
+        <ul class="shell-bottom">
+            <li class="list"><img src="img/1.png" alt=""></li>
+            <li class="list"><img src="img/2.png" alt=""></li>
+            <li class="list"><img src="img/3.png" alt="">&nbsp;</li>
+        </ul>
+    </div>
+    <script>
+        var list = document.querySelectorAll('.list');
+        var main = document.querySelector('.main');
+        for (let i = 0; i < list.length; i++) {
+            list[i].addEventListener('click', function() {
+                console.log(i);
+                main.style.left = (i * -100) + '%'
+                    // if (i === 0) {
+                    //     document.body.style.backgroundColor = 'red'
+                    // } else if (i === 1) {
+                    //     document.body.style.backgroundColor = 'blue'
+                    // } else {
+                    //     document.body.style.backgroundColor =  rgb(250, 220, 250)'
+                    // }
+                    // if (i) {
+
+                //     i === 1 ? document.body.style.backgroundColor = 'blue' : document.body.style.backgroundColor = 'green'
+                // } else {
+
+                //     document.body.style.backgroundColor = 'red'
+                // }
+                // if (i) {
+                //     document.body.style.backgroundColor = i == 1 ? 'blue' : 'green'
+                // } else {
+                //     document.body.style.backgroundColor = ' rgb(250, 220, 250)'
+                // }
+                document.body.style.backgroundColor = i == 1 ? 'lightgreen' : i == 2 ? 'lightblue' : ' rgb(250, 220, 250)'
+            })
+
+
+        }
+    </script>
+</body>
+
+</html>
